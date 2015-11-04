@@ -1136,6 +1136,13 @@ function test_jQuery_removeData() {
     $("span:eq(3)").text("" + jQuery.data(div, "test2"));
 }
 
+function test_removeDataAll() {
+    var el = $("div");
+    el.data("test1", "VALUE-1");
+    el.data("test2", "VALUE-2");
+    el.removeData();
+}
+
 function test_dblclick() {
     $('#target').dblclick(function () {
         alert('Handler for .dblclick() called.');
@@ -3210,6 +3217,10 @@ function test_not() {
     $("p").not("#selected");
 
     $("p").not($("div p.selected"));
+    
+    var el1 = $("<div/>")[0];
+    var el2 = $("<div/>")[0];
+    $("p").not([el1, el2]);
 }
 
 function test_EventIsNewable() {
